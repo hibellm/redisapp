@@ -1,0 +1,11 @@
+sadd drug001 pt101 pt102 pt108 pt222 pt333 pt999
+sadd drug002 pt103 pt104 pt105 pt106 pt107 pt109 pt123 pt456 pt120
+sadd ae001 pt101 pt107 pt109 pt120 pt123 pt222 pt333
+sadd ae002 pt101 pt103 pt104 pt109
+sadd ae003 pt109 pt222 pt456 pt999
+sadd ae004 pt102 pt120
+
+hmset aelist ae001 "Headache" ae002 "Lymphnode Cancer" ae003 "Hepatic Cancer" ae004 "Colon Cancer"
+hmset druglist  drug001 "Wonder Drug" drug002 "Placebo" drug999 "Total"
+hmset drugdose  drug001 "150" drug002 "" drug999 ""
+hmset drugunit  drug001 "mg" drug002 "" drug999 ""
