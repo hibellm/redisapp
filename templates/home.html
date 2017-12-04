@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <div class="jumbotron text-center">
+    <h1>Test of a REDIS app</h1>
+    <p class="lead">This application is built on the Python Flask framework</p>
+  </div>
+
+  <table class="ui table celled orange inverted">
+    <thead>
+      <th>Adverse Events</th>
+      <th>Drug01</th>
+      <th>Drug02</th>
+    </thead>
+    <tr>
+      <td>N</td>
+      <td>{{drug001}}</td>
+      <td>{{drug002}}</td>
+    </tr>
+    <tr>
+      <td>AE001{{y}}</td>
+      <td>{{d1a1}}</td>
+      <td>{{d2a1}}</td>
+    </tr>
+    <tr>
+      <td>AE002{{x}}</td>
+      <td>{{d1a2}}</td>
+      <td>{{d2a2}}</td>
+    </tr>
+  </table>
+
+
+{% endblock %}
