@@ -27,8 +27,9 @@ pipe = r.pipeline()
 
 pipe.sinterstore('d1a1','drug001','ae001').sinterstore('d1a2','drug001','ae002').sinterstore('d2a1','drug002','ae001').sinterstore('d2a2','drug002','ae002').execute()
 
-def percent(num1, num2):
-    return ' ({0:.2%}'.format((num1 / num2))+")"
+def percent(num1, num2, dp):
+	var = ' ({0:.'+str(dp)+'%}'
+	return var.format((num1 / num2))+str(")")
 
 # Index
 @app.route('/')
@@ -50,13 +51,13 @@ def index():
     drug002=(r.scard('drug002'))
     drug999=(drug001+drug002)
 
-    d1a1=str(r.scard('d1a1'))+str(percent(r.scard('d1a1'),r.scard('drug001')))
-    d1a2=str(r.scard('d1a2'))+str(percent(r.scard('d1a2'),r.scard('drug001')))
-    d2a1=str(r.scard('d2a1'))+str(percent(r.scard('d2a1'),r.scard('drug002')))
-    d2a2=str(r.scard('d2a2'))+str(percent(r.scard('d2a2'),r.scard('drug002')))
+    d1a1=str(r.scard('d1a1'))+str(percent(r.scard('d1a1'),r.scard('drug001'),2))
+    d1a2=str(r.scard('d1a2'))+str(percent(r.scard('d1a2'),r.scard('drug001'),2))
+    d2a1=str(r.scard('d2a1'))+str(percent(r.scard('d2a1'),r.scard('drug002'),2))
+    d2a2=str(r.scard('d2a2'))+str(percent(r.scard('d2a2'),r.scard('drug002'),2))
 
     # d9a1=str(d1a1+d2a1)+str(percent(d1a1+d2a1,drug999))
-    z=str(r.scard('d2a2'))+str(percent(r.scard('d2a2'),r.scard('drug002')))
+    z=str(r.scard('d2a2'))+str(percent(r.scard('d2a2'),r.scard('drug002'),2))
 
     # reqdrug=['drug001','drug002']
     # reqae=['ae001','ae002','ae003']
